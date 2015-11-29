@@ -1,0 +1,6 @@
+// append @task to table
+// row_id = '#task_' + @task.id
+$("#task_<%= @task.id %>").replaceWith('<%= j render "task_line", task: @task %>');
+
+// close the modal
+// $('#task_dialog').modal('hide')

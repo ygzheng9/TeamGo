@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  biz_owner: MyString
+  biz_plan_start_dt: 2015-11-29
+  biz_plan_end_dt: 2015-11-29
+
+two:
+  name: MyString
+  biz_owner: MyString
+  biz_plan_start_dt: 2015-11-29
+  biz_plan_end_dt: 2015-11-29

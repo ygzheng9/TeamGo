@@ -1,0 +1,18 @@
+// append @task to table
+$("#tbl_tasks").append('<%= j render "task_line", task: @task %>');
+
+// close the modal
+// $('#task_dialog').modal('hide')
+
+// reset all field in the form
+$("form#new_task")[0].reset()
+
+// simulate click new again
+// $('#new_task').click()
+
+// refresh the dialog input controls
+// @task = Task.new
+// $("#task_dialog_content").html("<%= j render 'form_w_opt', remote:true %>");
+
+// @task = Task.new
+// $("#task_dialog").html("<%= escape_javascript(render 'task_dialog') %>");

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tasks</h1>
+
+<table id="tbl_tasks">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Biz owner</th>
+      <th>Biz plan start dt</th>
+      <th>Biz plan end dt</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render 'tasks', tasks: @tasks %>
+  </tbody>
+</table>
+
+<br>
+
+<%#= link_to 'New Task', new_task_path %>
+
+<%= link_to '创建新任务', new_task_path, id: "new_task" , remote: true, :"data-toggle" => 'modal', :"data-target" => '#task_dialog' %>
+
+<div class="modal fade" id="task_dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+</div>
