@@ -10,7 +10,6 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require bootstrap-datepicker3
  */
 
 // Then, remove all the *= require_self and *= require_tree . statements from the sass file. Instead, use @import to import Sass files.
@@ -18,5 +17,9 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import "bootstrap-datepicker3";
+@import "font-awesome";
+@import "./**/*";
 
 // @import 'bootstrap-datepicker3";

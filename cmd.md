@@ -6,6 +6,10 @@ rails g scaffold teammembers name:string display_name:string
 
 rails g migration add_biz_owner_id_to_task biz_owner_id:integer
 
+rails g scaffold company name:string desc:string
+rails g scaffold project name:string company_id desc:string
+rails g model project_member project_id:integer teammember_id:integer
+
 
 git remote add origin git@github.com:ygzheng9/TeamGo.git
 
@@ -30,3 +34,5 @@ todo
 
 1. create之后，直接调用另一个click？ remote？ -- ajax the screen is blank  -- walkaround: reset the form
 2. gem 之后，装在哪了？scss的@import的路径是什么？
+
+1. simple_form: check_box 的格式；

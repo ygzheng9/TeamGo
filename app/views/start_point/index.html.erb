@@ -1,0 +1,40 @@
+
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Welcome to TeamGo
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-check"></i> 任务信息 </h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>英雄好汉，大显身手的时候到了</p>
+
+                        <%= link_to "悬赏令", tasks_path, class: 'btn btn-default' %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-gift"></i> 成员信息 </h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>一个人再牛，都不算什么；一群人很牛，才叫真牛</p>
+                        <%= link_to "兄弟们", teammembers_path, class: 'btn btn-default' %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-compass"></i> 项目信息 </h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>一年又一年，要有的吃才行</p>
+                        <%= link_to "饭票儿", projects_path, class: 'btn btn-default' %>
+                    </div>
+                </div>
+            </div>

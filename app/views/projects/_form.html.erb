@@ -1,0 +1,18 @@
+<%= simple_form_for(@project) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, label: "项目名称" %>
+
+    <%= f.association :company, label: "公司", label_method: :name, value_method: :id, prompt: "请选定公司", include_blank: false %>
+
+    <%= f.input :desc, label: "备注" %>
+
+    <%= f.collection_check_boxes :teammember_ids, Teammember.all, :id, :display_name %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

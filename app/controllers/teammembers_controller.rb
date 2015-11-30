@@ -28,7 +28,7 @@ class TeammembersController < ApplicationController
 
     respond_to do |format|
       if @teammember.save
-        format.html { redirect_to @teammember, notice: 'Teammember was successfully created.' }
+        format.html { redirect_to teammembers_path, notice: 'Teammember was successfully created.' }
         format.json { render :show, status: :created, location: @teammember }
       else
         format.html { render :new }

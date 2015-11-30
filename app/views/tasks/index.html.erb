@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Tasks</h1>
+  <h1>任务清单 — SBS <small> <%= link_to '切换项目', '' %> </small></h1>
 
-<table id="tbl_tasks">
+<table id="tbl_tasks" class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Biz owner</th>
-      <th>Biz plan start dt</th>
-      <th>Biz plan end dt</th>
+      <th>任务名称</th>
+      <th>业务设计-人员</th>
+      <th>业务设计-计划开始时间</th>
+      <th>业务设计-计划结束时间</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,7 +22,7 @@
 
 <%#= link_to 'New Task', new_task_path %>
 
-<%= link_to '创建新任务', new_task_path, id: "new_task" , remote: true, :"data-toggle" => 'modal', :"data-target" => '#task_dialog' %>
+<%= link_to '创建新任务', new_task_path, class: "btn btn-default", id: "new_task" , remote: true, :"data-toggle" => 'modal', :"data-target" => '#task_dialog' %>
 
 <div class="modal fade" id="task_dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 

@@ -7,8 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+   <%= render "shared/nav" %>
 
-<%= yield %>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <%= yield %>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Coscon Team 2015</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 
 </body>
 </html>
