@@ -13,6 +13,11 @@ rails g model project_member project_id:integer teammember_id:integer
 
 git remote add origin git@github.com:ygzheng9/TeamGo.git
 
+rails g scaffold task_type company_id:integer code:string name:string display_seq:string desc:string teammember_id:integer parent_id:integer
+
+rails g scaffold task_type company_id:integer code:string name:string display_seq:string desc:string teammember_id:integer parent_id:integer
+rails g migration change_task_type
+rails g migration change_task_type_2
 
 todo
 2. ajax to new a task  -- OK

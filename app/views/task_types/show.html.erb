@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @task_type.company_id %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @task_type.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @task_type.name %>
+</p>
+
+<p>
+  <strong>Display seq:</strong>
+  <%= @task_type.display_seq %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @task_type.desc %>
+</p>
+
+<p>
+  <strong>Teammember:</strong>
+  <%= @task_type.teammember_id %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @task_type.parent_id %>
+</p>
+
+<%= link_to 'Edit', edit_task_type_path(@task_type) %> |
+<%= link_to 'Back', task_types_path %>
