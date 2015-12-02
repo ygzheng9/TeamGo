@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :tasklines do
+    member do
+      get 'new_subtask'
+    end
+  end
+
   resources :task_types do
     member do
       get 'new_subtask'

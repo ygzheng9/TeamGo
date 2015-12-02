@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201103832) do
+ActiveRecord::Schema.define(version: 20151202144203) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -37,6 +37,27 @@ ActiveRecord::Schema.define(version: 20151201103832) do
 
 # Could not dump table "task_types" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
+
+  create_table "tasklines", force: :cascade do |t|
+    t.integer  "project_id"
+    t.string   "code"
+    t.string   "name"
+    t.string   "display_seq"
+    t.string   "desc"
+    t.integer  "teammember_id"
+    t.integer  "uplevel_id"
+    t.date     "planned_start_dt"
+    t.date     "planned_end_dt"
+    t.date     "actual_start_dt"
+    t.date     "actual_end_dt"
+    t.decimal  "planned_manhours"
+    t.decimal  "actual_manhours"
+    t.decimal  "completion"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "level"
+    t.integer  "task_type_id"
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string   "name"

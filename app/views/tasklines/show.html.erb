@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @taskline.project_id %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @taskline.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @taskline.name %>
+</p>
+
+<p>
+  <strong>Display seq:</strong>
+  <%= @taskline.display_seq %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @taskline.desc %>
+</p>
+
+<p>
+  <strong>Teammember:</strong>
+  <%= @taskline.teammember_id %>
+</p>
+
+<p>
+  <strong>Uplevel:</strong>
+  <%= @taskline.uplevel_id %>
+</p>
+
+<p>
+  <strong>Planned start dt:</strong>
+  <%= @taskline.planned_start_dt %>
+</p>
+
+<p>
+  <strong>Planned end dt:</strong>
+  <%= @taskline.planned_end_dt %>
+</p>
+
+<p>
+  <strong>Actual start dt:</strong>
+  <%= @taskline.actual_start_dt %>
+</p>
+
+<p>
+  <strong>Actual end dt:</strong>
+  <%= @taskline.actual_end_dt %>
+</p>
+
+<p>
+  <strong>Planned manhours:</strong>
+  <%= @taskline.planned_manhours %>
+</p>
+
+<p>
+  <strong>Actual manhours:</strong>
+  <%= @taskline.actual_manhours %>
+</p>
+
+<p>
+  <strong>Completion:</strong>
+  <%= @taskline.completion %>
+</p>
+
+<%= link_to 'Edit', edit_taskline_path(@taskline) %> |
+<%= link_to 'Back', tasklines_path %>

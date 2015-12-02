@@ -13,11 +13,14 @@ rails g model project_member project_id:integer teammember_id:integer
 
 git remote add origin git@github.com:ygzheng9/TeamGo.git
 
-rails g scaffold task_type company_id:integer code:string name:string display_seq:string desc:string teammember_id:integer parent_id:integer
+rails g scaffold task_type company_id:integer code:string name:string display_seq:string desc:string teammember_id:integer uplevel_id:integer
 
-rails g scaffold task_type company_id:integer code:string name:string display_seq:string desc:string teammember_id:integer parent_id:integer
-rails g migration change_task_type
-rails g migration change_task_type_2
+rails g scaffold taskline project_id:integer code:string name:string display_seq:string desc:string teammember_id:integer uplevel_id:integer planned_start_dt:date planned_end_dt:date actual_start_dt:date actual_end_dt:date planned_manhours:decimal actual_manhours:decimal completion:decimal
+
+rails g migration add_level_to_taskline level:integer
+
+rails g migration add_task_type_to_taskline task_type_id:integer
+
 
 todo
 2. ajax to new a task  -- OK
@@ -29,8 +32,18 @@ todo
 5. 人员名单下拉 -- ok
 3. datepicker -- OK
 4. add new fields to task
-1. overall layout
+1. overall layout  -- ok
   top ban, log on the left, menu on the right, dropdown menu
+
+1. 按照level，显示缩进
+2. 表格表头居中
+3. form 改成分4列
+4. 选择了 task_type 后，把 sub_tasks 加到下一级 -- OK
+    1. 新增
+    2. 修改
+1. save 前，判断某个字段是否被修改过？ --ok
+
+1. group method: 下拉框分组，并且能选中组；
 
 1. create之后，清空dialog，以便更快度录入下一条记录； -- find the form_id and reset()  --OK
 
@@ -41,3 +54,6 @@ todo
 2. gem 之后，装在哪了？scss的@import的路径是什么？
 
 1. simple_form: check_box 的格式；
+
+
+
