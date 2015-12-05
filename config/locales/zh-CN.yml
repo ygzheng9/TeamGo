@@ -1,0 +1,15 @@
+"zh-CN":
+  CaseSensitive: "你好呀：%{name} !"
+  Show: "显示"
+  Back: "返回"
+  New_Task_Type: "新建任务类型"
+  Editing_Task_Type: "修改任务类型"
+
+  activerecord:
+      models:
+        task_type: "任务类型"
+      attributes:
+        task_type:
+          code: '任务代码'
+          teammember: '负责人'
+          display_seq: '显示次序'

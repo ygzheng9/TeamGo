@@ -35,6 +35,8 @@ gem 'bootstrap-datepicker-rails'
 
 gem "font-awesome-rails"
 
+gem "rails-i18n"
+
 # gem "paperclip"
 
 

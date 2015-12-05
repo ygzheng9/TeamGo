@@ -1,6 +1,8 @@
-<h1>Editing Task Type</h1>
+<h1>t('Editing_Task_Type')</h1>
+
+<h1><%= t('CaseSensitive', name: 'balabala') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @task_type %> |
-<%= link_to 'Back', task_types_path %>
+<%= link_to t('Show'), @task_type %> |
+<%= link_to t('Back'), task_types_path %>

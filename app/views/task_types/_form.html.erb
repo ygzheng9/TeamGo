@@ -5,12 +5,12 @@
     <%= f.association :company, label: "公司", label_method: :name, value_method: :id, prompt: "请选定公司", include_blank: false %>
     <%= f.association :uplevel, collection: TaskType.top_levels, label: "上一级", label_method: :full_display_name, value_method: :id, prompt: "请选定上一层级", include_blank: true %>
 
-    <%= f.input :display_seq, label: '任务编号'  %>
-    <%= f.input :code, label: "任务代码" %>
+    <%= f.input :display_seq %>
+    <%= f.input :code %>
     <%= f.input :name, label: '任务名称' %>
     <%= f.input :desc, label: '任务描述'  %>
 
-    <%= f.association :teammember, label: "负责人", label_method: :display_name, value_method: :id, prompt: "请选定负责人", include_blank: false %>
+    <%= f.association :teammember, label_method: :display_name, value_method: :id, prompt: :translate, include_blank: false %>
   </div>
 
   <div class="form-actions">
