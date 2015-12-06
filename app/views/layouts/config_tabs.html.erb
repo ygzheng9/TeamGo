@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TeamGo</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+   <%= render "shared/nav" %>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <h1>config tabs</h1>
+            <div class="col-lg-12">
+
+<div id='config_tabs'>
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#contact_01" data-toggle="tab">Joe Smith</a><span>x</span></li>
+        <li><a href="#contact_02" data-toggle="tab">Molly Lewis</a><span>x</span> </li>
+        <li><a href="#" class="add-contact">+ Add Contact</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="contact_01">Contact Form: Joe Smith</div>
+        <div class="tab-pane" id="contact_02">Contact Form: Molly Lewis</div>
+    </div>
+</div>
+                <%= yield %>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Coscon Team 2015</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+    $("#config_tabs .nav-tabs").on("click", "a", function (e) {
+           e.preventDefault();
+           if (!$(this).hasClass('add-contact')) {
+               $(this).tab('show');
+           }
+      })
+      .on("click", "span", function () {
+        console.log('span');
+
+        // make the one before the cloed active
+        $(this).parent().prev().tab('show');
+
+        // remove content, cause href is tab-content id
+        var anchor = $(this).siblings('a');
+        $(anchor.attr('href')).remove();
+        // remove tab itself
+        $(this).parent().remove();
+    });
+
+    $('.add-contact').click(function(e) {
+        console.log('add-contact');
+
+        e.preventDefault();
+        var id = $(".nav-tabs").children().length; //think about it ;)
+        $(this).closest('li').before('<li><a href="#contact_'+id+'">New Tab</a><span>x</span></li>');
+        $('.tab-content').append('<div class="tab-pane" id="contact_'+id+'">Contact Form: New Contact '+id+'</div>');
+
+        // make the new tab active
+        $(this).parent().prev().tab('show');
+        // var idx = id - 1
+        // $('#config_tabs li:eq(' + idx  + ') a').tab('show')
+    });
+
+    </script>
+
+
+</body>
+</html>

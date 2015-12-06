@@ -4,6 +4,9 @@
   Back: "返回"
   New_Task_Type: "新建任务类型"
   Editing_Task_Type: "修改任务类型"
+  edit_all_task_types: '批量修改'
+  update_all_task_types: '批量修改'
+  task_types: '任务类型列表'
 
   activerecord:
       models:

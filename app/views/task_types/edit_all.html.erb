@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<h1>任务类型</h1>
+
+<%= form_for :task_type, url: update_all_task_types_path, :html => { :method => :put } do %>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>公司</th>
+      <th>编号</th>
+      <th>代码</th>
+      <th>名称</th>
+      <th>描述</th>
+      <th>责任人</th>
+      <th>上一级</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task_types.each do |task_type| %>
+      <%= simple_fields_for "task_type[]", task_type do |f| %>
+      <tr>
+        <td><%= f.association :company, label: "公司", label_method: :name, value_method: :id, prompt: "请选定公司", include_blank: false %></td>
+
+        <td> <%= f.association :uplevel, collection: TaskType.top_levels, label: "上一级", label_method: :full_display_name, value_method: :id, prompt: "请选定上一层级", include_blank: true %>        </td>
+
+        <td><%= f.input :code %></td>
+        <td><%= f.input :name %></td>
+        <td><%= f.input :desc %></td>
+        <td><%= f.association :teammember, label_method: :display_name, value_method: :id, prompt: :translate, include_blank: false %></td>
+        <td><%= f.input :display_seq %></td>
+        <td>
+        <% if task_type.uplevel.nil? %>
+          <%= link_to '创建子任务', new_subtask_task_type_path(task_type) %>
+        <% end %>
+        <%= link_to '删除', task_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+  <div class="actions">
+    <%= submit_tag t('update_all_task_types'), class: "btn btn-default" %>
+    <%= link_to t('task_types'), task_types_path, class: "btn btn-default" %>
+  </div>
+
+<% end %>
+
+<br>
+
+<%= link_to '新建任务类型', new_task_type_path, class: "btn btn-default"  %>

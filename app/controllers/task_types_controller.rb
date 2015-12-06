@@ -73,6 +73,16 @@ class TaskTypesController < ApplicationController
     end
   end
 
+  def edit_all
+    @task_types = TaskType.pretty_list
+  end
+
+  def update_all
+    TaskType.update(params['task_type'].keys, params['task_type'].values)
+
+    redirect_to edit_all_task_types_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task_type

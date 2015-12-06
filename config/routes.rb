@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     member do
       get 'new_subtask'
     end
+
+    collection do
+      get 'edit_all'
+      put 'update_all'
+    end
   end
 
   resources :projects
