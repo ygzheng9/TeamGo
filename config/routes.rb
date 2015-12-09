@@ -18,7 +18,13 @@ Rails.application.routes.draw do
 
   resources :projects
   resources :companies
-  resources :teammembers
+
+  resources :teammembers do
+    collection do
+      put 'update_all_seq'
+    end
+  end
+
   resources :tasks
 
   get 'start_point/index'

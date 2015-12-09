@@ -7,6 +7,7 @@
   edit_all_task_types: '批量修改'
   update_all_task_types: '批量修改'
   task_types: '任务类型列表'
+  update_all_members: '保存'
 
   activerecord:
       models:

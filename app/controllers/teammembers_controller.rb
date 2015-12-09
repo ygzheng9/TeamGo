@@ -4,7 +4,7 @@ class TeammembersController < ApplicationController
   # GET /teammembers
   # GET /teammembers.json
   def index
-    @teammembers = Teammember.all
+    @teammembers = Teammember.all.order(:display_seq)
   end
 
   # GET /teammembers/1
@@ -61,6 +61,19 @@ class TeammembersController < ApplicationController
     end
   end
 
+  def update_all_seq
+    Teammember.update(params['teammembers'].keys, params['teammembers'].values)
+
+    @teammembers = Teammember.all.order(:display_seq)
+
+    respond_to do |format|
+      format.js
+    end
+
+    # redirect_to teammembers_path
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_teammember
@@ -69,6 +82,6 @@ class TeammembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teammember_params
-      params.require(:teammember).permit(:name, :display_name)
+      params.require(:teammember).permit(:name, :display_name, :display_seq)
     end
 end

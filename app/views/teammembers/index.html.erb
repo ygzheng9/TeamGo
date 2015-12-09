@@ -2,28 +2,9 @@
 
 <h1>成员清单</h1>
 
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>用户名</th>
-      <th>姓名</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div id='tablelist'>
+<%= render 'tablelist' %>
+</div>
 
-  <tbody>
-    <% @teammembers.each do |teammember| %>
-      <tr>
-        <td><%= teammember.name %></td>
-        <td><%= teammember.display_name %></td>
-        <td><%= link_to 'Show', teammember %></td>
-        <td><%= link_to 'Edit', edit_teammember_path(teammember) %></td>
-        <td><%= link_to 'Destroy', teammember, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 
 <%= link_to 'New Teammember', new_teammember_path %>

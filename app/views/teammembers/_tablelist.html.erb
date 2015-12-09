@@ -1,0 +1,75 @@
+<%= form_for :teammember, url: update_all_seq_teammembers_path,  remote: true, :html => { :method => :put } do %>
+
+<table id='id_tbl' class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th>用户名</th>
+      <th>姓名</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teammembers.each do |teammember| %>
+      <%= fields_for "teammembers[]", teammember do |f| %>
+      <tr>
+        <td><%= radio_button_tag 'grp_check', '' %> <%= f.hidden_field :display_seq, class: "display_seq" %> </td>
+        <td><%= teammember.name %></td>
+        <td><%= teammember.display_name %></td>
+        <td><%= link_to 'Show', teammember %></td>
+        <td><%= link_to 'Edit', edit_teammember_path(teammember) %></td>
+        <td><%= link_to 'Destroy', teammember, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<button type="button" class="btn btn-xs btn-primary">
+  <span id='move_up' class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+</button>
+
+<button type="button" class="btn btn-xs btn-primary">
+  <span id='move_down' class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+</button>
+
+<%= button_tag(type: "submit", class: "btn btn-xs btn-primary", :onclick => "return fill_seq();") do %>
+    <span class="glyphicon glyphicon-floppy-disk"></span>
+<% end %>
+
+<button type="submit" class="btn btn-xs btn-primary" onclick="return fill_seq();">
+  <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+</button>
+
+
+<% end %>
+
+<script type="text/javascript">
+
+        $ ('#move_up').click (function ()
+        {
+            var insert = $ ('table tr :radio:checked').closest ('tr');
+            var tr = insert.prev ('tr');
+            tr.before (insert);
+        });
+
+        $ ('#move_down').click (function ()
+        {
+            var insert = $ ('table tr :radio:checked').closest ('tr');
+            var tr = insert.next ('tr');
+            tr.after (insert);
+        });
+
+        $ ('#id_save').click (function ()
+        {
+            fill_seq();
+        });
+
+        function fill_seq() {
+          $("table#id_tbl tr").each(function () {
+              $(this).find("input:hidden").val( $(this)[0].rowIndex );
+            });
+        }
+
+</script>

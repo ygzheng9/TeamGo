@@ -21,6 +21,7 @@ rails g migration add_level_to_taskline level:integer
 
 rails g migration add_task_type_to_taskline task_type_id:integer
 
+rails g migration add_display_seq_to_teammember display_seq:integer
 
 todo
 2. ajax to new a task  -- OK
