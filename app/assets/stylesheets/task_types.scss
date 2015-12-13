@@ -1,3 +1,26 @@
 // Place all the styles related to the task_types controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#tbl_1 {
+  font-size: 12px;
+
+  .form-group {
+    margin-bottom: 0px;
+  }
+
+  .form-control {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    border-width: 0px;
+    height: 24px;
+
+    // line-height: 15px;
+    // display: inline-block;
+    // width: calc(100% - 8px);
+    // height: calc(100% - 8px);
+    // padding: 4px;
+  }
+}

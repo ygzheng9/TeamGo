@@ -1,0 +1,41 @@
+<br>
+
+<div id='error_id' class="alert alert-error">
+  That would cost too much
+</div>
+
+<table id="mainTable" class="table table-striped" style="cursor: pointer;">
+  <thead><tr><th>Name</th><th>Cost</th><th>Profit</th><th>Fun</th></tr></thead>
+  <tbody>
+    <tr><td tabindex="1">Car</td><td tabindex="1">100</td><td tabindex="1">200</td><td tabindex="1" class='lst'>0</td></tr>
+    <tr><td tabindex="1">Bike</td><td tabindex="1">330</td><td tabindex="1">234</td><td tabindex="1" class='lst'>1</td></tr>
+    <tr><td tabindex="1">Plane</td><td tabindex="1">430</td><td tabindex="1">540</td><td tabindex="1" class='lst'>3</td></tr>
+    <tr><td tabindex="1">Yacht</td><td tabindex="1">100</td><td tabindex="1">200</td><td tabindex="1" class='lst'>0</td></tr>
+    <tr><td tabindex="1">Segway</td><td tabindex="1">330</td><td tabindex="1">240</td><td tabindex="1" class='lst'>1</td></tr>
+  </tbody>
+  <tfoot><tr><th><strong>TOTAL</strong></th><th>1290</th><th>1414</th><th>5</th></tr></tfoot>
+</table>
+
+<input type="text" id='inp_1'> </input>
+<input type="text" id='inp_2'> </input>
+
+
+<script type="text/javascript">
+  // $('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
+
+  $('#mainTable').editableTableWidget().find('td:first').focus();
+
+  $('#mainTable td').on('click', function(evt, newValue) {
+     var col = $(this).index();
+     var row = $(this).parent().index();
+  });
+
+  $("#inp_1").dropDownList();
+
+  $("#inp_2").dropDownList();
+
+  $("#mainTable td.lst").dropDownList();
+
+</script>
+
+

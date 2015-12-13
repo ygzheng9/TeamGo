@@ -4,4 +4,7 @@ class StartPointController < ApplicationController
 
   def contact
   end
+
+  def editable
+  end
 end

@@ -2,7 +2,7 @@
 
 <h1>任务类型</h1>
 
-<table class="table table-striped table-hover">
+<table class="table table-striped table-hover" id='task_types_idx'>
   <thead>
     <tr>
       <th>公司</th>
@@ -33,7 +33,7 @@
         <td><%= task_type.code %></td>
         <td><%= task_type.name %></td>
         <td><%= task_type.desc %></td>
-        <td><%= task_type.teammember.display_name unless (task_type.teammember.nil?) %></td>
+        <td class="list"><%= task_type.teammember.display_name unless (task_type.teammember.nil?) %></td>
         <td><%= task_type.uplevel.display_seq unless (task_type.uplevel.nil?) %></td>
         <td>
         <% if task_type.uplevel.nil? %>
@@ -50,3 +50,7 @@
 
 <%= link_to '新建任务类型', new_task_type_path, class: "btn btn-default"  %>
 <%= link_to t('edit_all_task_types'), edit_all_task_types_path, class: "btn btn-default"  %>
+
+<script type="text/javascript">
+  $("#task_types_idx td.list").dropDownList();
+</script>

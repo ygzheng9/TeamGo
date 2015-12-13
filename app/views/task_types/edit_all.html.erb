@@ -2,22 +2,6 @@
 
 <h1>任务类型</h1>
 
-<div id='error_id' class="alert alert-error">
-  That would cost too much
-</div>
-
-<table id="mainTable" class="table table-striped" style="cursor: pointer;">
-  <thead><tr><th>Name</th><th>Cost</th><th>Profit</th><th>Fun</th></tr></thead>
-  <tbody>
-    <tr><td tabindex="1">Car</td><td tabindex="1">100</td><td tabindex="1">200</td><td tabindex="1">0</td></tr>
-    <tr><td tabindex="1">Bike</td><td tabindex="1">330</td><td tabindex="1">234</td><td tabindex="1">1</td></tr>
-    <tr><td tabindex="1">Plane</td><td tabindex="1">430</td><td tabindex="1">540</td><td tabindex="1">3</td></tr>
-    <tr><td tabindex="1">Yacht</td><td tabindex="1">100</td><td tabindex="1">200</td><td tabindex="1">0</td></tr>
-    <tr><td tabindex="1">Segway</td><td tabindex="1">330</td><td tabindex="1">240</td><td tabindex="1">1</td></tr>
-  </tbody>
-  <tfoot><tr><th><strong>TOTAL</strong></th><th>1290</th><th>1414</th><th>5</th></tr></tfoot>
-</table>
-
 <%= form_for :task_type, url: update_all_task_types_path, :html => { :method => :put } do %>
 
 <div id="tbl_1">
@@ -32,6 +16,7 @@
       <th>描述</th>
       <th>责任人</th>
       <th>上一级</th>
+      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -53,6 +38,8 @@
         <% if task_type.uplevel.nil? %>
           <%= link_to '创建子任务', new_subtask_task_type_path(task_type) %>
         <% end %>
+      </td>
+      <td>
         <%= link_to '删除', task_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <% end %>
@@ -71,23 +58,3 @@
 <br>
 
 <%= link_to '新建任务类型', new_task_type_path, class: "btn btn-default"  %>
-
-<style type="text/css">
-.handsontable .form-control {
-    border-right: 1px solid #CCC;
-    border-bottom: 1px solid #CCC;
-    height: 22px;
-    empty-cells: show;
-    line-height: 21px;
-    padding: 0 4px 0 4px;
-    background-color: #FFF;
-    vertical-align: top;
-    overflow: hidden;
-    outline-width: 0;
-    white-space: pre-line;
-}
-</style>
-
-<script type="text/javascript">
-  $('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
-</script>

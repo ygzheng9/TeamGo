@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   get 'start_point/index'
   get 'start_point/contact'
+  get 'start_point/editable'
   root 'start_point#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
