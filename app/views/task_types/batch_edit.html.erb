@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>任务类型</h1>
+<h1>任务类型 -- 批量修改</h1>
 
 <table class="table table-striped table-hover" id='task_types_idx'>
   <thead>
@@ -18,10 +18,10 @@
 
   <tbody>
     <% @task_types.each do |task_type| %>
-      <tr>
+      <tr data-id="<%= task_type.id %>">
         <td><%= task_type.company.name unless (task_type.company.nil?)  %></td>
 
-        <td>
+        <td class='readOnly'>
           <% if task_type.uplevel then %>
             <%= '&nbsp;&nbsp;&nbsp;&nbsp;'.html_safe + task_type.display_seq %>
           <% else %>
@@ -33,7 +33,7 @@
         <td><%= task_type.code %></td>
         <td><%= task_type.name %></td>
         <td><%= task_type.desc %></td>
-        <td class="list"><%= task_type.teammember.display_name unless (task_type.teammember.nil?) %></td>
+        <td class="list" data-id="<%= task_type.teammember.id %>"><%= task_type.teammember.display_name unless (task_type.teammember.nil?) %></td>
         <td><%= task_type.uplevel.display_seq unless (task_type.uplevel.nil?) %></td>
         <td>
         <% if task_type.uplevel.nil? %>
@@ -49,10 +49,13 @@
 <br>
 
 <%= link_to '新建任务类型', new_task_type_path, class: "btn btn-default"  %>
-<%= link_to t('edit_all_task_types'), edit_all_task_types_path, class: "btn btn-default"  %>
-<%= link_to t('batch_edit_task_types'), batch_edit_task_types_path, class: "btn btn-default"  %>
+
+<button type="button" class="btn btn-primary" onClick="saveAll(); ">保存</button>
 
 
 <script type="text/javascript">
+  $('#task_types_idx').editableTableWidget().find('td:first').focus();
+
   $("#task_types_idx td.list").dropDownList();
+  $("#task_types_idx td.readOnly").readOnly();
 </script>

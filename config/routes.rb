@@ -12,7 +12,10 @@ Rails.application.routes.draw do
 
     collection do
       get 'edit_all'
+      get 'batch_edit'
+
       put 'update_all'
+      post 'saveAll'
     end
   end
 

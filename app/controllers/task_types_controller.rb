@@ -77,6 +77,22 @@ class TaskTypesController < ApplicationController
     @task_types = TaskType.pretty_list
   end
 
+  def batch_edit
+    @task_types = TaskType.pretty_list
+  end
+
+  def saveAll
+    @haha = params
+
+    TaskType.update(params['task_type'].keys, params['task_type'].values)
+
+    # byebug
+
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+  end
+
   def update_all
     TaskType.update(params['task_type'].keys, params['task_type'].values)
 
